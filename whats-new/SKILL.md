@@ -293,26 +293,21 @@ Read `${CLAUDE_SKILL_DIR}/references/output-templates.md` for format.
 
 ### Pre-implementation verification
 
-Before implementing ANY item, fetch the relevant official documentation
-to confirm correct syntax. Use WebFetch with `https://code.claude.com/docs/en/<area>`:
+Before implementing ANY item, look up the relevant section of the official
+Claude Code documentation to confirm correct syntax. Search for the feature
+name in the official Claude Code docs. Never implement from memory alone —
+the docs are the source of truth for field names, allowed values, and
+configuration format.
 
-| Change type | Doc to fetch |
-|-------------|-------------|
-| Skill frontmatter | `/en/skills` |
-| Hook configuration | `/en/hooks` |
-| Settings changes | `/en/settings` |
-| Agent frontmatter | `/en/sub-agents` |
-| Plugin config | `/en/plugins` |
-| Memory/checkpoint | `/en/memory` |
-| Model/effort config | `/en/model-config` |
-
-Never implement from memory alone — docs are the source of truth for field names,
-allowed values, and configuration format.
-
-**Fallback:** If the change doesn't clearly map to one area above, fetch the docs
-index at `https://code.claude.com/docs/llms.txt` and search for the relevant page.
-If WebFetch is unavailable, use WebSearch for `site:code.claude.com <feature name>`.
-
+| Change type | Doc topic to search |
+|-------------|---------------------|
+| Skill frontmatter | Claude Code skills |
+| Hook configuration | Claude Code hooks |
+| Settings changes | Claude Code settings |
+| Agent frontmatter | Claude Code sub-agents |
+| Plugin config | Claude Code plugins |
+| Memory/checkpoint | Claude Code memory |
+| Model/effort config | Claude Code model configuration |
 ### Dry-Run Mode
 
 When `--dry-run` is active, replace all file writes with previews:
